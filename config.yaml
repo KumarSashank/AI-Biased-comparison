@@ -1,0 +1,61 @@
+# LLM Voting Experiment Configuration
+
+# List of LLMs to use in the experiment
+# Using base models from each provider
+models:
+  # OpenAI base model
+  # Uncomment when you have OPENAI_API_KEY
+  # - name: "gpt-3.5-turbo"
+  #   provider: "openai"
+  #   api_key_env: "OPENAI_API_KEY"
+  
+  # Anthropic base model (claude-3-haiku is the base/fastest model)
+  # Uncomment when you have ANTHROPIC_API_KEY
+  # - name: "claude-3-haiku-20240307"
+  #   provider: "anthropic"
+  #   api_key_env: "ANTHROPIC_API_KEY"
+  
+  # Google base model
+  - name: "gemini-2.5-flash-lite"
+    provider: "google"
+    api_key_env: "GEMINI_API_KEY"
+  
+  # DeepSeek base model
+  # Commented out due to insufficient balance - uncomment when you have credits
+  # - name: "deepseek-chat"
+  #   provider: "deepseek"
+  #   api_key_env: "DEEPSEEK_API_KEY"
+  
+  # Mistral base model (open-mistral-7b or mistral-small)
+  - name: "open-mistral-7b"
+    provider: "mistral"
+    api_key_env: "MISTRAL_API_KEY"
+  
+  # Cohere base model
+  # Uncomment when you have COHERE_API_KEY
+  # - name: "command"
+  #   provider: "cohere"
+  #   api_key_env: "COHERE_API_KEY"
+  
+  # Add more models as needed
+
+# Prompts to test
+prompts:
+  - "Explain quantum computing in simple terms."
+  - "Write a persuasive argument for renewable energy."
+  - "Describe the ethical implications of AI in healthcare."
+  # Add more prompts as needed
+
+# Experiment settings
+experiment:
+  num_runs: 1  # Number of times to run each test
+  temperature: 0.7  # Temperature for answer generation
+  max_tokens: 1000  # Max tokens for answers
+  collect_reasoning: true  # Whether to collect voting reasoning
+
+# Output settings
+output:
+  results_dir: "results"
+  data_dir: "data"
+  plots_dir: "plots"
+
